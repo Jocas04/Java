@@ -1,0 +1,42 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-encoding
+'UTF-8'
+-protected
+--release
+24
+-sourcepath
+'C:/Users/jatta/OneDrive/Documents/NetBeansProjects/mavenproject1/src/main/java;C:/Users/jatta/OneDrive/Documents/NetBeansProjects/mavenproject1/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/jatta/OneDrive/Documents/NetBeansProjects/mavenproject1/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'mavenproject1 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'mavenproject1 1.0-SNAPSHOT API'
+com.mycompany.mavenproject1
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\src\main\java = 1749215699441
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\generated-sources\annotations = 1749217291807
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\allclasses-index.html = 1749217294490
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\allpackages-index.html = 1749217294507
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\element-list = 1749217294181
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\help-doc.html = 1749217294824
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\index-all.html = 1749217294616
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\index.html = 1749217294691
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\member-search-index.js = 1749217294547
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\module-search-index.js = 1749217294516
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\overview-tree.html = 1749217294397
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\package-search-index.js = 1749217294525
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\search.html = 1749217294664
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\tag-search-index.js = 1749217294556
+C:\Users\jatta\OneDrive\Documents\NetBeansProjects\mavenproject1\target\reports\apidocs\type-search-index.js = 1749217294535
