@@ -87,7 +87,7 @@ public class TelaCalc extends javax.swing.JFrame {
 
         jLabel6.setText("Raiz cúbica");
 
-        jLabel7.setText("Valor absolutoi");
+        jLabel7.setText("Valor absoluto");
 
         lblDivisao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblDivisao.setForeground(new java.awt.Color(255, 51, 255));
