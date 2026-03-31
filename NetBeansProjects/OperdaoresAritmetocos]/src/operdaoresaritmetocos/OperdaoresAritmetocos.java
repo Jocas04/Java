@@ -21,22 +21,24 @@ public class OperdaoresAritmetocos {
         System.out.println("A media sera igual a: " + m);
         System.out.println("media:" + m);
         
-        /*int numero= 5;
-        int valor = 5 + numero--;
-        System.out.println(valor);*/
+        int numero=45;
+        int valor= 4 + ++numero;
+        System.out.println(valor);
         
-        /*int x = 5;
-        x *= 2;
-        System.out.println(x);*/
+        int x= 4;
+        x +=2;
+        int y=5;
+        y *=2;
+        System.out.println(x);
+        System.out.println(y);
         
-        /*float v = 8.3f;
-        int ar = (int) Math.floor(v);
-        System.out.println(ar);*/
+        float n10= (float) 7.5;
+        int ar= (int)Math.ceil(n10);
+        System.out.println(ar);
         
-        double ale = Math.random();
-        int n= (int) (5 + ale * (10-5));
-        System.out.println(n);
-        
+        double yu= Math.random();
+        int fg= (int)(6 + yu * (10-6));
+        System.out.println(fg);
     }
     
 }
