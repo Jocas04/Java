@@ -128,6 +128,7 @@ public class Telalista extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         list.addElement("item1");
+       
     }//GEN-LAST:event_btnadActionPerformed
 
     private void btnreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreActionPerformed
