@@ -17,11 +17,13 @@ public class Repeat {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-       /* int cc = 0;
+        int cc = 0;
         do {System.out.println("Cambalhota " + cc);
         cc++;
-        } while (cc<4);*/
-       /*double salario=678;
+        } while (cc<4);
+        
+        
+       double salario=678;
        int diast= 18;
        int horasm= 160;
        int horasd= 8;
@@ -39,7 +41,9 @@ public class Repeat {
         System.out.println("salario liquido: " + liquido);
         System.out.println("o valor do inss: " + inss);
         System.out.println("valor do adiantamento: " + adiantamento);
-        System.out.println("valor do fgts: " + fgts);   */
+        System.out.println("valor do fgts: " + fgts);   
+        
+        
        int n1;   int n2;
        Scanner teclado= new Scanner(System.in);
          System.out.println("insira um numero: " );

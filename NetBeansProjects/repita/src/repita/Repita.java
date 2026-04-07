@@ -33,7 +33,7 @@ public class Repita {
         
         }while (n!= 0);
         media = (s/conta);
-        JOptionPane.showMessageDialog(null, "Resultado Final " + "a soma dos numeros é " + s + "total de valores: " + conta + "numeros pares" + par + "numeros impares " + impar + " numeros acima de 100 " + maisdecem + "media dos valores " + media);
+        JOptionPane.showMessageDialog(null, "Resultado Final " + " a soma dos numeros é " + s + " total de valores: " + conta + " numeros pares " + par + " numeros impares " + impar + " numeros acima de 100 " + maisdecem + " 1media dos valores " + media);
         
     
 

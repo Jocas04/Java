@@ -74,15 +74,13 @@ public class Genio extends javax.swing.JFrame {
 
     private void btnPalpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPalpActionPerformed
         // TODO add your handling code here:
-        double n= 1 + Math.random() * (6-1);
-        int valor = (int) n;
+        double n = 1 + Math.random()* (6-1);
+        int valor= (int) n;
         int num= Integer.parseInt(txtVal.getValue().toString());
-        String f1= "<html>ACERTOU MISERAVI<html>!";
-        String f2= "<html>ERROU! pensei no número " + valor + "<html>";
-        String res= (valor== num)?f1:f2;
-        lblFrase.setFont(new Font("Arial Black", Font.PLAIN, 16));
-        lblFrase.setText(res);
-       
+        String f1= "<html>ACERTOU MISERAVI, BOA!!!</html>";
+        String f2= "<html>VOCE ERROU EU PENSEI NO NUMERO " + valor + "</html>";
+        String res = (valor==num)?f1:f2;
+       lblFrase.setText(res);
  
     }//GEN-LAST:event_btnPalpActionPerformed
 
