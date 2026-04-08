@@ -22,7 +22,7 @@ public class ProblemadeJosephus {
         } else{
             System.out.println("ERRO" ); 
             System.out.println("N ou K invalido");
-            System.exit(N);
+            System.exit(1);
         }
         for(int i = 2; i <= N; i++){
             sobrevivente= (sobrevivente + K) % i;
@@ -37,7 +37,7 @@ public class ProblemadeJosephus {
         System.out.println("digite a quantidade de casas por morte");
         int K= sc.nextInt();
         
-       System.out.println("o numero da casa sobrevivewnte sera " + calculo(N,K));
+       System.out.println("o numero da casa sobrevivewnte será: " + calculo(N,K));
           
             
         
