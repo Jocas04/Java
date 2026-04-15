@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d295fb0-4c7a-4fea-9b43-3c6a6ea74ad9" name="Changes" comment="" />
+    <list default="true" id="3d295fb0-4c7a-4fea-9b43-3c6a6ea74ad9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/NetBeansProjects/ProblemadeJosephusCorrigido/build/classes/problemadejosephuscorrigido/JosephusSolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetBeansProjects/ProblemadeJosephusCorrigido/build/classes/problemadejosephuscorrigido/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetBeansProjects/ProblemadeJosephusCorrigido/build/classes/problemadejosephuscorrigido/ProblemadeJosephusCorrigido.class" beforeDir="false" afterPath="$PROJECT_DIR$/NetBeansProjects/ProblemadeJosephusCorrigido/build/classes/problemadejosephuscorrigido/ProblemadeJosephusCorrigido.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetBeansProjects/ProblemadeJosephusCorrigido/build/classes/problemadejosephuscorrigido/ProblemadeJosephusCorrigido.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NetBeansProjects/ProblemadeJosephusCorrigido/src/problemadejosephuscorrigido/ProblemadeJosephusCorrigido.java" beforeDir="false" afterPath="$PROJECT_DIR$/NetBeansProjects/ProblemadeJosephusCorrigido/src/problemadejosephuscorrigido/ProblemadeJosephusCorrigido.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,6 +153,7 @@
       <workItem from="1774441118211" duration="5096000" />
       <workItem from="1774530304326" duration="5015000" />
       <workItem from="1775055584648" duration="276000" />
+      <workItem from="1776251708797" duration="9000" />
     </task>
     <servers />
   </component>

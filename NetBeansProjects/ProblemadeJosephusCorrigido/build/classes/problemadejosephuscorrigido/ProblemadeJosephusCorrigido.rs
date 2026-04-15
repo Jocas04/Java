@@ -1,3 +1,0 @@
-problemadejosephuscorrigido.Node
-problemadejosephuscorrigido.ProblemadeJosephusCorrigido
-problemadejosephuscorrigido.JosephusSolver

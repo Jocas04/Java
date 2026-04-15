@@ -1,70 +1,106 @@
 package problemadejosephuscorrigido;
-
 import java.util.Scanner;
 
-// Classe Nó para lista circular
-class Node {
+/*
+ * Arquivo: ProblemadeJosephusCorrigido.java
+ * Baseado no SRD: Josephus - DO178B
+ * Norma: RTCA/DO-178B / DO-178C
+ * Norma: DO-178B / DO-178C – DAL D
+ */
+class No{
     int id;
-    Node next;
-    Node(int id) { this.id = id; }
+    No proximo;
+    
+    No(int id){ // criando Nós 
+        this.id= id; //id para uma casa
+        this.proximo=null;       
+    }    
 }
+//excecao erro
+class EntradaInvalidaException extends Exception {
+    public EntradaInvalidaException(String mensagem) {
+        super(mensagem);
+    }
+}
+// Algoritmo
+class CalculadoradeJosephus {
+    
+    public static int calculo(int N, int K)
+            throws EntradaInvalidaException {
+      
+// LLR01 — Verificação da Faixa de N
+    if (N < 1) {
+        throw new EntradaInvalidaException("N invalido");
+    }
 
-// Classe principal de cálculo
-class JosephusSolver {
+    // LLR02 — Verificação da Faixa de K
+    if (K < 1) {
+        throw new EntradaInvalidaException("K invalido");
+    }
+    //limite para o sistema
+    if (N > 100000) {
+    throw new EntradaInvalidaException("N excede limite operacional");
+    }
+    
 
-    public int solve(int N, int K) {
-        // Validação de entrada (LLR01 e LLR02)
-        if (N < 1) throw new IllegalArgumentException("N inválido");
-        if (K < 1) throw new IllegalArgumentException("K inválido");
 
-        // Criação da lista circular (LLR03)
-        Node head = new Node(1);
-        Node prev = head;
-        for (int i = 2; i <= N; i++) {
-            prev.next = new Node(i);
-            prev = prev.next;
+        //HLR03 — Execução do Algoritmo de Josephus (MODIFICADO) 
+        No inicio= new No(1); //criacao da lista circular 
+        No atual= inicio;  
+        
+        for(int i = 2; i <= N; i++){
+            atual.proximo= new No(i);
+            atual = atual.proximo;
         }
-        prev.next = head; // circularidade
-
-        // Navegação e eliminação (LLR04–LLR07)
-        Node current = head;
-        while (current.next != current) {
-            for (int i = 1; i < K; i++) {
-                current = current.next;
+        atual.proximo= inicio; // termino da lista
+        
+        No fim = atual;  // aponta para o último criado
+        
+        atual = inicio;    //processo de ir para a proxima casa
+        while(atual.proximo != atual){//navegacao circular
+        for (int i = 1; i < K; i++) {
+                fim = atual;
+                atual = atual.proximo;
             }
-            // Eliminação do nó
-            current.next = current.next.next;
-            current = current.next;
+        //eliminacao de casas
+            System.out.println("Casa eliminada: " + atual.id);
+            fim.proximo = atual.proximo;            
+            atual = atual.proximo;        
         }
-
-        // Identificação do sobrevivente (LLR08)
-        return current.id;
+        
+       return atual.id; //HLR04 — Apresentação do Resultado 
     }
 }
 
-// Classe de interface com o usuário
 public class ProblemadeJosephusCorrigido {
+    
+    
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        JosephusSolver solver = new JosephusSolver();
+    public static void main(String[] args) throws EntradaInvalidaException {
+       Scanner sc= new Scanner(System.in);
+      //HLR05 — Execução Repetida 
+       while (true) {
+    try {
+        System.out.println("Digite N (0 para encerrar):");
+        int N = sc.nextInt();
 
-        while (true) {
-            System.out.println("Digite N (0 para encerrar):");
-            int N = sc.nextInt();
-            if (N == 0) break;
+        if (N == 0) {
+            break; // HLR05 — Execução Repetida com encerramento controlado
+        }
 
-            System.out.println("Digite K (0 para encerrar):");
-            int K = sc.nextInt();
-            if (K == 0) break;
+        System.out.println("Digite K (0 para encerrar)");
+        int K = sc.nextInt();
+        if (K==0) {
+            break;// HLR05 — Execução Repetida com encerramento controlado
+        }
 
-            try {
-                int sobrevivente = solver.solve(N, K);
-                System.out.println("O sobrevivente está na posição: " + sobrevivente);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erro de entrada: " + e.getMessage());
+        int sobrevivente = CalculadoradeJosephus.calculo(N, K);
+        System.out.println("Sobrevivente: " + sobrevivente);
+
+    } catch (EntradaInvalidaException e) {
+        System.out.println("Erro de entrada: " + e.getMessage());
+        System.out.println("Status: ERRO");
             }
         }
-        sc.close();
-    }
+    }   
 }
