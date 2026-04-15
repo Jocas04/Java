@@ -7,16 +7,20 @@ import java.util.Scanner;
  * Norma: RTCA/DO-178B / DO-178C
  * Norma: DO-178B / DO-178C – DAL D
  */
+//Estrutura de dados
+//LLR03 — Criação da Lista Encadeada Circular
 class No{
     int id;
     No proximo;
     
     No(int id){ // criando Nós 
-        this.id= id; //id para uma casa
+        this.id= id;
         this.proximo=null;       
     }    
 }
 //excecao erro
+//Usada para sinalizar erro de entrada
+//HLR02 — Validação de Entrada
 class EntradaInvalidaException extends Exception {
     public EntradaInvalidaException(String mensagem) {
         super(mensagem);
@@ -25,6 +29,9 @@ class EntradaInvalidaException extends Exception {
 // Algoritmo
 class CalculadoradeJosephus {
     
+//Método principal de cálculo
+//HLR03 — Execução do Algoritmo de Josephus
+//HLR04 — Apresentação do Resultado
     public static int calculo(int N, int K)
             throws EntradaInvalidaException {
       
@@ -33,11 +40,11 @@ class CalculadoradeJosephus {
         throw new EntradaInvalidaException("N invalido");
     }
 
-    // LLR02 — Verificação da Faixa de K
+// LLR02 — Verificação da Faixa de K
     if (K < 1) {
         throw new EntradaInvalidaException("K invalido");
     }
-    //limite para o sistema
+//limite para o sistema
     if (N > 100000) {
     throw new EntradaInvalidaException("N excede limite operacional");
     }
@@ -45,40 +52,45 @@ class CalculadoradeJosephus {
 
 
         //HLR03 — Execução do Algoritmo de Josephus (MODIFICADO) 
-        No inicio= new No(1); //criacao da lista circular 
+        // LLR03 — Criação da Lista Encadeada Circular
+        No inicio= new No(1);  
         No atual= inicio;  
         
         for(int i = 2; i <= N; i++){
             atual.proximo= new No(i);
             atual = atual.proximo;
         }
-        atual.proximo= inicio; // termino da lista
+        atual.proximo= inicio; // Fecha a lista
         
         No fim = atual;  // aponta para o último criado
         
         atual = inicio;    //processo de ir para a proxima casa
-        while(atual.proximo != atual){//navegacao circular
+        // LLR07 — Condição de Término
+        while(atual.proximo != atual){
+        // LLR04 — Navegação Circular (K − 1)
         for (int i = 1; i < K; i++) {
                 fim = atual;
                 atual = atual.proximo;
             }
-        //eliminacao de casas
+        // LLR05 — Eliminação de Nó
             System.out.println("Casa eliminada: " + atual.id);
-            fim.proximo = atual.proximo;            
+            fim.proximo = atual.proximo;  
+        // LLR06 — Atualização do Nó Corrente
             atual = atual.proximo;        
         }
         
+        // LLR08 — Identificação do Sobrevivente
+        // LLR10 — Saída Formada
        return atual.id; //HLR04 — Apresentação do Resultado 
     }
 }
-
+//Principal
 public class ProblemadeJosephusCorrigido {
     
     
 
     public static void main(String[] args) throws EntradaInvalidaException {
-       Scanner sc= new Scanner(System.in);
-      //HLR05 — Execução Repetida 
+       Scanner sc= new Scanner(System.in); 
        while (true) {
     try {
         System.out.println("Digite N (0 para encerrar):");
