@@ -18,6 +18,24 @@ class ListaDupla{
     public boolean ListaVazia()  {
             return inicio==null;
         }
+    
+    public void InserirInicio(int valor){
+        NO novo= new NO(valor);    
+        if (ListaVazia()){
+                inicio=fim=novo;
+            }
+        else {
+            novo.proximo=inicio;
+            inicio.anterior=novo;
+            inicio=novo;
+            }  
+        }
+    
+    public void InseririFim(int valor) {
+        NO novo= new NO(valor);
+        
+        
+    }
     }
 public class ListaDuplamenteEncadeada {
     
