@@ -31,9 +31,36 @@ class ListaDupla{
             }  
         }
     
-    public void InseririFim(int valor) {
+    public void InserirFim(int valor) {
         NO novo= new NO(valor);
-        
+        if (ListaVazia()){
+            inicio=fim=novo;          
+        }
+        else{
+            fim.proximo=novo;
+            novo.anterior=fim;
+            fim=novo;
+        }
+    }
+    
+    public void InserirOrdenado(int valor){
+        if (ListaVazia() || valor <= inicio.valor) {
+            InserirInicio(valor);
+            return;
+        } 
+        NO atual = inicio;
+        while(atual.proximo != null && atual.proximo.valor < valor) {
+            atual = atual.proximo;
+        }
+        if (atual.proximo == null) {
+            InserirFim(valor);
+        } else{
+            NO novo = new NO (valor);
+            novo.proximo = atual.proximo;
+            novo.anterior = atual;
+            atual.proximo.anterior = novo;
+            atual.proximo = novo;
+        }
         
     }
     }
