@@ -11,41 +11,59 @@ package pilha2;
 public class Pilha2<T> {
     private class NO {
         T value;
-        NO next;
+        NO proximo;
 
         NO(T value) {
             this.value = value;
         }
     }
 
-    private NO top;
-    private int size;
+    private NO topo;
+    private int tamanho;
 
     public boolean EstaVazia() {
-        return top == null;
+        return topo == null;
     }
 
     public int size() {
-        return size;
+        return tamanho;
     }
 
     public void push(T value) {
         NO node = new NO(value);
-        node.next = top;
-        top = node;
-        size++;
+        node.proximo = topo;
+        topo = node;
+        tamanho++;
     }
 
     public T pop() {
-        if (EstaVazia()) throw new RuntimeException("Pilha vazia");
-        T value = top.value;
-        top = top.next;
-        size--;
+        if (EstaVazia()) System.out.println("Pilha vazia");
+        T value = topo.value;
+        topo = topo.proximo;
+        tamanho--;
         return value;
     }
 
     public T peek() {
-        if (EstaVazia()) throw new RuntimeException("Pilha vazia");
-        return top.value;
+        if (EstaVazia()) System.out.println("Pilha vazia");
+        return topo.value;
+    }
+    public static void main(String[] args) {
+        Pilha2 p = new Pilha2();
+        
+        p.push(5);
+        p.push(15);
+        p.push(25);
+
+        System.out.println("Topo: " + p.peek()); // 25
+        System.out.println("Tamanho: " + p.size()); // 3
+
+        System.out.println(p.pop()); // 25
+        System.out.println(p.pop()); // 15
+        System.out.println(p.pop()); // 5
+
+        System.out.println("Vazia? " + p.EstaVazia()); // true
+
+        
     }
 }

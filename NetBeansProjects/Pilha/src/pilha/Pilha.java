@@ -21,6 +21,7 @@ public class Pilha<T> {
     }
     public void push(T value) {
         if (top + 1 == data.length) {
+             System.out.println("Pilha cheia!");
             redimensionar();
         }
         data[++top] = value;
@@ -41,6 +42,23 @@ public class Pilha<T> {
 
     public static void main(String[] args) {
        
+    Pilha p = new Pilha(5);
+
+        p.push(10);
+        p.push(20);
+        p.push(30);
+
+        System.out.println("Topo: " + p.peek()); // 30
+        System.out.println("Tamanho: " + p.tamanho()); // 3
+
+        System.out.println(p.pop()); // 30
+        System.out.println(p.pop()); // 20
+
+        System.out.println("Vazia? " + p.TaVazio()); // false
+        System.out.println(p.pop()); // 10
+        System.out.println("Vazia? " + p.TaVazio()); // true
+
+        
     }
     
 }
