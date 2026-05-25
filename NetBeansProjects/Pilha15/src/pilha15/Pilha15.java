@@ -26,7 +26,7 @@ public class Pilha15 {
     public static void main(String[] args) {
         int[]entrada={2,7,6,3,1,4,7};
         int[] resultado = NGE(entrada);
-        System.out.println(Arrays.toString(resultado));//
+        System.out.println(Arrays.toString(resultado));//7, -1, 7, 4, 4, 7, -1
     }
     
 }
