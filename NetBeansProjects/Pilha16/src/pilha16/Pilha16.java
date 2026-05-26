@@ -25,7 +25,7 @@ public class Pilha16 {
     public static void main(String[] args) {
         int[] entrada= {56, 82, 65, 92, 53, 96, 42, 64, 98};
         int[] resultado= temperatura(entrada);
-        System.out.println(Arrays.toString(resultado)); //
+        System.out.println(Arrays.toString(resultado)); //1, 2, 1, 2, 1, 3, 1, 1, 0
     }
     
 }
