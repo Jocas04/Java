@@ -3,6 +3,7 @@ package agendacontatos;
 import contato.Contato;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.io.FileWriter;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +15,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import static javax.swing.UIManager.get;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 
@@ -21,8 +24,7 @@ public class AgendaContatos {
     
     private DefaultListModel<Contato> Listamodelo;
     private JList<Contato> Contatolista;
-
-    
+      
 private boolean contatoExiste(String nome) {
     for (int i = 0; i < Listamodelo.size(); i++) {
         Contato c = Listamodelo.get(i);
@@ -34,7 +36,6 @@ private boolean contatoExiste(String nome) {
     }
     return false;
 }
-
     public AgendaContatos() {
         JFrame frame = new JFrame("Agenda de Contatos");
         frame.setSize(600, 600);
@@ -49,6 +50,7 @@ private boolean contatoExiste(String nome) {
         
         JButton btnadd = new JButton("Adicionar");
         JButton btnremove = new JButton("Remover");
+        JButton btnEditar = new  JButton("Editar");
         JPanel panel = new JPanel(new GridLayout(3,3));
         panel.add(new JLabel("Nome:  "));
         panel.add(Nomecampo);
@@ -58,6 +60,7 @@ private boolean contatoExiste(String nome) {
         JPanel Btnpanel = new JPanel();
         Btnpanel.add(btnadd);
         Btnpanel.add(btnremove);
+        Btnpanel.add(btnEditar);
         frame.add(panel, BorderLayout.NORTH);
         frame.add(new JScrollPane(Contatolista), BorderLayout.CENTER);
         frame.add(Btnpanel, BorderLayout.SOUTH);
@@ -83,11 +86,26 @@ private boolean contatoExiste(String nome) {
         //Remover contato da lista
         btnremove.addActionListener((e) -> {
            int indice = Contatolista.getSelectedIndex();
+           int resposta = JOptionPane.showConfirmDialog(null, "Deseja remover?");
+
+           if (resposta == JOptionPane.YES_OPTION) {
+                // remover
+           }
            if(indice != -1) {
                Listamodelo.remove(indice);
            }
         });
+        //Editar contato
+        btnEditar.addActionListener((e) -> {
        
+        int indice = Contatolista.getSelectedIndex();
+
+        if (indice != -1) {
+        String novoNome = JOptionPane.showInputDialog("Novo nome:");
+        String novoTelefone = JOptionPane.showInputDialog("Novo telefone:");
+
+        Listamodelo.set(indice, new Contato(novoNome, novoTelefone));
+    } });
         frame.setVisible(true);
     }
     
