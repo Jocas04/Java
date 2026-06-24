@@ -21,11 +21,11 @@ public class Contato {
     }
 
     public String getNome() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return nome;
     }
 
     public String getTelefone() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      return telefone;
     }
     
 }
