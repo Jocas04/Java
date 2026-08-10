@@ -27,15 +27,22 @@ public class SistemaBanco {
         
         JTextField campoTitular = new JTextField();
         JButton btnCriar = new JButton("Criar Conta");
+        JButton btnDepositar = new JButton("Depositar");
+        JButton btnSacar = new JButton("Sacar");
         JButton btnAtualizar = new JButton("Atualizar");
         JPanel topo = new JPanel(new GridLayout(2, 1));
         
         topo.add(campoTitular);
         topo.add(btnCriar);
        
+        JPanel botoes = new JPanel();
+        botoes.add(btnDepositar);
+        botoes.add(btnSacar);
+        botoes.add(btnAtualizar);
+        
         frame.add(topo, BorderLayout.NORTH);
         frame.add(new JScrollPane(lista),BorderLayout.CENTER);
-        frame.add(btnAtualizar, BorderLayout.SOUTH);
+        frame.add(botoes, BorderLayout.SOUTH);
        
         btnCriar.addActionListener((e) -> {
         String titular = campoTitular.getText().trim();
@@ -46,8 +53,23 @@ public class SistemaBanco {
         }
         });
         
+        btnDepositar.addActionListener((e) -> {
+        Conta conta = lista.getSelectedValue();
+        if(conta == null) return;
+        String valorStr= JOptionPane.showInputDialog("Valor para depósito: ");
+        double valor = Double.parseDouble(valorStr);
+        csb.depositar(conta.getId(), valor);
+        atualizarlista();
+        });
+        btnSacar.addActionListener((e) -> {
+        Conta conta = lista.getSelectedValue();
+        if(conta == null) return;
+        String valorStr= JOptionPane.showInputDialog("Valor para o saque: ");
+        double valor = Double.parseDouble(valorStr);
+        csb.sacar(conta.getId(), valor);
+        atualizarlista();
+        });
         btnAtualizar.addActionListener(e -> atualizarlista());
-        
         atualizarlista();
         frame.setVisible(true);
         }
