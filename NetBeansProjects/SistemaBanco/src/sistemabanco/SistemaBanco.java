@@ -30,6 +30,7 @@ public class SistemaBanco {
         JButton btnDepositar = new JButton("Depositar");
         JButton btnSacar = new JButton("Sacar");
         JButton btnAtualizar = new JButton("Atualizar");
+        JButton btnTransferir = new JButton("Tranferencia");
         JPanel topo = new JPanel(new GridLayout(2, 1));
         
         topo.add(campoTitular);
@@ -39,6 +40,7 @@ public class SistemaBanco {
         botoes.add(btnDepositar);
         botoes.add(btnSacar);
         botoes.add(btnAtualizar);
+        botoes.add(btnTransferir);
         
         frame.add(topo, BorderLayout.NORTH);
         frame.add(new JScrollPane(lista),BorderLayout.CENTER);
@@ -68,6 +70,26 @@ public class SistemaBanco {
         double valor = Double.parseDouble(valorStr);
         csb.sacar(conta.getId(), valor);
         atualizarlista();
+        });
+        btnTransferir.addActionListener(e -> {
+        Conta origem = lista.getSelectedValue();
+        if(origem == null) {
+            JOptionPane.showMessageDialog(null, "Selecione a conta de origem");
+            return;
+        }
+        try { 
+            int destino = Integer.parseInt(JOptionPane.showInputDialog("ID da conta destino:"));
+            double valor= Double.parseDouble(JOptionPane.showInputDialog("Valor da tranferencia:"));
+            if(valor > origem.getSaldo()) {
+                JOptionPane.showMessageDialog(null, "Saldo insuficiente");
+                return;
+            }
+            csb.transferir(origem.getId(),
+                    destino, valor);
+            atualizarlista();
+        } catch(Exception ex) {
+            JOptionPane.showMessageDialog(null, "Dados Invalidos");
+        }
         });
         btnAtualizar.addActionListener(e -> atualizarlista());
         atualizarlista();

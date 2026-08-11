@@ -65,6 +65,36 @@ public class ContaSB {
             e.printStackTrace();
         }
     }
+    public void transferir(int origem, int destino, double valor) {
+        try( 
+            Connection conec = Conexao.conectar();
+                ) {
+            conec.setAutoCommit(false);
+            String sqlSaque = """
+                              UPDATE contas
+                              SET saldo = saldo - ?
+                              WHERE id = ?
+                              """;
+            String sqlDeposito ="""
+                                UPDATE contas
+                                SET saldo = saldo + ?
+                                WHERE id = ?
+                                """;
+            PreparedStatement saque = conec.prepareStatement(sqlSaque);
+            saque.setDouble(1,valor);
+            saque.setInt(2,origem);
+            saque.executeUpdate();
+            
+            PreparedStatement deposito = conec.prepareStatement(sqlDeposito);
+            deposito.setDouble(1,valor);
+            deposito.setInt(2, destino);
+            deposito.executeUpdate();
+            
+            conec.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public ArrayList<Conta> listar() {
         ArrayList<Conta> lista = new ArrayList<>();
         String sql = "SELECT * FROM contas";
