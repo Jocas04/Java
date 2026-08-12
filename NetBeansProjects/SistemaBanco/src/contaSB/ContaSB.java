@@ -6,12 +6,12 @@ import conta.Conta;
 import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
+import movimentacaoSB.MovimentacaoSB;
 
 public class ContaSB {
     public ContaSB() {
         criarTabela();
     }
-
     public void criarTabela() {
     String sql = """
     CREATE TABLE IF NOT EXISTS contas(
@@ -44,7 +44,8 @@ public class ContaSB {
         try(
                 Connection conec = Conexao.conectar();
             PreparedStatement ps = conec.prepareStatement(sql)) {
-           
+            MovimentacaoSB mov = new MovimentacaoSB();
+            mov.registrar(id, "DEPOSITO", valor);
             ps.setDouble(1, valor);
             ps.setInt(2, id);
             ps.executeUpdate();
@@ -57,7 +58,8 @@ public class ContaSB {
         try(
                 Connection conec = Conexao.conectar();
             PreparedStatement ps = conec.prepareStatement(sql)) {
-          
+            MovimentacaoSB mov = new MovimentacaoSB();
+            mov.registrar(id, "SAQUE", valor);
             ps.setDouble(1, valor);
             ps.setInt(2, id);
             ps.executeUpdate();
@@ -89,8 +91,10 @@ public class ContaSB {
             deposito.setDouble(1,valor);
             deposito.setInt(2, destino);
             deposito.executeUpdate();
-            
             conec.commit();
+            MovimentacaoSB mov = new MovimentacaoSB();
+            mov.registrar(origem, "TRANSFERENCIA ENVIADA", valor);
+            mov.registrar(destino, "TRANSFERENCIA RECEBIDA", valor);
         } catch (Exception e) {
             e.printStackTrace();
         }

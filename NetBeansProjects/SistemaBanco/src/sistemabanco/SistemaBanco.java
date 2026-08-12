@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.sql.Connection;
+import movimentacao.Movimentacao;
+import movimentacaoSB.MovimentacaoSB;
 
 
 public class SistemaBanco {
@@ -31,6 +34,7 @@ public class SistemaBanco {
         JButton btnSacar = new JButton("Sacar");
         JButton btnAtualizar = new JButton("Atualizar");
         JButton btnTransferir = new JButton("Tranferencia");
+        JButton btnExtrato = new JButton("Extrato");
         JPanel topo = new JPanel(new GridLayout(2, 1));
         
         topo.add(campoTitular);
@@ -41,6 +45,7 @@ public class SistemaBanco {
         botoes.add(btnSacar);
         botoes.add(btnAtualizar);
         botoes.add(btnTransferir);
+        botoes.add(btnExtrato);
         
         frame.add(topo, BorderLayout.NORTH);
         frame.add(new JScrollPane(lista),BorderLayout.CENTER);
@@ -91,6 +96,20 @@ public class SistemaBanco {
             JOptionPane.showMessageDialog(null, "Dados Invalidos");
         }
         });
+        btnExtrato.addActionListener((e) -> {
+        Conta conta = lista.getSelectedValue();
+        if(conta == null) {
+            return;
+            MovimentacaoSB movSB = new MovimentacaoSB();
+            ArrayList<Movimentacao> listaMov = movSB.listar(conta.getId());
+            StringBuilder sb = new StringBuilder();
+            for(Movimentacao m : listaMov) {
+                sb.append(m).append("/n");
+            }
+            JOptionPane.showMessageDialog(null, sb.toString());
+        }
+        });
+        
         btnAtualizar.addActionListener(e -> atualizarlista());
         atualizarlista();
         frame.setVisible(true);
