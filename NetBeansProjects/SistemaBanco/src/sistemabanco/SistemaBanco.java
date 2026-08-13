@@ -96,10 +96,11 @@ public class SistemaBanco {
             JOptionPane.showMessageDialog(null, "Dados Invalidos");
         }
         });
-        btnExtrato.addActionListener((e) -> {
+        btnExtrato.addActionListener(e -> {
         Conta conta = lista.getSelectedValue();
         if(conta == null) {
             return;
+            }
             MovimentacaoSB movSB = new MovimentacaoSB();
             ArrayList<Movimentacao> listaMov = movSB.listar(conta.getId());
             StringBuilder sb = new StringBuilder();
@@ -107,7 +108,6 @@ public class SistemaBanco {
                 sb.append(m).append("/n");
             }
             JOptionPane.showMessageDialog(null, sb.toString());
-        }
         });
         
         btnAtualizar.addActionListener(e -> atualizarlista());
