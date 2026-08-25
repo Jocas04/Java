@@ -1,13 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package movimentacao;
 
-/**
- *
- * @author jatta
- */
+
 public class Movimentacao {
+    private String tipo;
+    private int quantidade;
+    private String data;
     
+    public Movimentacao(String tipo, int quantidade, String data) {
+        this.tipo = tipo;
+        this.quantidade = quantidade;
+        this.data = data;
+    }
+    @Override
+    public String toString() {
+        return data + " | " + tipo + " | " + quantidade;
+    }
 }
